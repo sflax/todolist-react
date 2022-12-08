@@ -4,7 +4,7 @@ function Header(props) {
   function handleTaskInput(event) {
     if (event.key === "Enter") {
       if (!event.target.value) {
-        event.target.value = "double click here to add a task ;)";
+        event.target.value = "double click here to add a task";
       }
       props.onAddItem(event.target.value);
       event.target.value = "";
