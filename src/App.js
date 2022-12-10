@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 function App() {
   const [todos, setTodos] = useState([]);
   const [noneCompletedItemsCount, setNoneCompletedItemsCount] = useState(0);
-  // const [editText, setEditText] = useState('');
+  // const [taskToEdit, setTaskToEdit] = useState([]);
 
   // useEffect(() => {
   //   fetch("https://jsonplaceholder.typicode.com/todos")

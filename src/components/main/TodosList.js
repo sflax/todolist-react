@@ -1,29 +1,22 @@
 import { useState } from "react";
 
 function TodosList({ items, onRemoveItem, onEditEnter, onCheckedCompleted }) {
-  let [titleToEdit, setTitleToEdit] = useState([]);
-
-  // function handleTaskRemove(item) {
-  //   onRemoveItem(item);
-  // }
+  let [taskToEdit, setTaskToEdit] = useState([]);
 
   function handleDbClick(event, item) {
-    console.log("enter the handleDbClick");
-    titleToEdit = item.id;
-    console.log(
-      `this is the original title id: ${titleToEdit} and this is its value: ${item.title}`
-    );
-    setTitleToEdit(titleToEdit);
+    // console.log("enter the handleDbClick");
+    taskToEdit = item.id;
+    // console.log(
+    //   `this is the original title id: ${titleToEdit} and this is its value: ${item.title}`
+    // );
+    setTaskToEdit(taskToEdit);
   }
 
   function handleEditItemEnter(event, item) {
     if (event.key === "Enter") {
       let newTitle = event.target.value;
-      console.log(
-        `this is our item.title: ${item.title} and this is our newTitle ${newTitle}`
-      );
-      titleToEdit = "";
-      setTitleToEdit(titleToEdit);
+      taskToEdit = "";
+      setTaskToEdit(taskToEdit);
       onEditEnter(newTitle, item);
     }
   }
@@ -35,7 +28,7 @@ function TodosList({ items, onRemoveItem, onEditEnter, onCheckedCompleted }) {
           key={item.id}
           className={
             (item.completed ? "completed" : "") +
-            (item.id === titleToEdit ? "editing" : "")
+            (item.id === taskToEdit ? "editing" : "")
           }
         >
           <div className="view">
