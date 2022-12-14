@@ -24,12 +24,6 @@ function App() {
 
   const appTitle = "TodosApp";
 
-  // let todos = [
-  //   { id: Date.now(), title: "Learn React", completed: false },
-  //   { id: Date.now(), title: "Listen to Nir React", completed: false },
-  //   { id: Date.now(), title: "Learn JS", completed: true },
-  // ];
-
   const addTodo = (title) => {
     const newTodos = todos.concat([
       { id: Date.now(), title, completed: false },
