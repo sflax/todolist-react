@@ -37,7 +37,7 @@ export function useTodos() {
     setTodos([...todos]);
   };
 
-  const updateCheckbox = (item) => {
+  const onCheckedCompleted = (item) => {
     item.completed = !item.completed;
     setTodos([...todos]);
   };
@@ -61,7 +61,7 @@ export function useTodos() {
     addTodo,
     removeTodo,
     editTodo,
-    updateCheckbox,
+    onCheckedCompleted,
     clearAllCompletedItems,
     toggleAllItems,
   };
