@@ -1,14 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { ListContext } from "../providers/list-context";
 
-function TodosList({ items, onRemoveItem, onEditEnter, onCheckedCompleted }) {
+export function TodosList() {
+  const { removeTodo, onEditEnter, onCheckedCompleted, todos } =
+    useContext(ListContext);
   let [taskToEdit, setTaskToEdit] = useState([]);
 
   function handleDbClick(event, item) {
-    // console.log("enter the handleDbClick");
     taskToEdit = item.id;
-    // console.log(
-    //   `this is the original title id: ${titleToEdit} and this is its value: ${item.title}`
-    // );
     setTaskToEdit(taskToEdit);
   }
 
@@ -23,7 +22,7 @@ function TodosList({ items, onRemoveItem, onEditEnter, onCheckedCompleted }) {
 
   return (
     <ul className="todo-list">
-      {items.map((item) => (
+      {todos.map((item) => (
         <li
           key={item.id}
           className={
@@ -41,7 +40,7 @@ function TodosList({ items, onRemoveItem, onEditEnter, onCheckedCompleted }) {
             <label onDoubleClick={(event) => handleDbClick(event, item)}>
               {item.title}
             </label>
-            <button className="destroy" onClick={() => onRemoveItem(item)} />
+            <button className="destroy" onClick={() => removeTodo(item)} />
           </div>
           <input
             className="edit"
@@ -53,5 +52,3 @@ function TodosList({ items, onRemoveItem, onEditEnter, onCheckedCompleted }) {
     </ul>
   );
 }
-
-export default TodosList;

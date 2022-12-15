@@ -1,6 +1,7 @@
-import React from "react";
+import { useContext } from "react";
+import { ListContext } from "../providers/list-context";
 
-function Footer({ onClearCompleted, itemLeftCount }) {
+export function Footer({ onClearCompleted, itemLeftCount }) {
   return (
     <div className="Footer">
       <span className="todo-count">
@@ -12,4 +13,3 @@ function Footer({ onClearCompleted, itemLeftCount }) {
     </div>
   );
 }
-export default Footer;
