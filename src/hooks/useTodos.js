@@ -3,7 +3,6 @@ import { useEffect, useRef, useState } from "react";
 export function useTodos() {
   const [todos, setTodos] = useState([]);
   const [noneCompletedItemsCount, setNoneCompletedItemsCount] = useState(0);
-  // const countRef = useRef(0);
 
   // useEffect(() => {
   //   fetch("https://jsonplaceholder.typicode.com/todos")
@@ -15,8 +14,6 @@ export function useTodos() {
     const uncompleted = todos.filter((todo) => !todo.completed);
     setNoneCompletedItemsCount(uncompleted.length);
   }, [todos]);
-
-  // const appTitle = "TodosApp";
 
   const addTodo = (title) => {
     const newTodos = todos.concat([
